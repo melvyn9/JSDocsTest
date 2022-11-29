@@ -12,6 +12,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
+          
+        - name: JSDOC generation
         - uses: andstor/jsdoc-action@v1
           with:
               source_dir: ./src/
