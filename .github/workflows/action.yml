@@ -1,6 +1,19 @@
-- name: Build
-  uses: andstor/jsdoc-action@v1
-  with:
-    source_dir: ./src
-    recurse: true
-    output_dir: ./out
+name: HTML Check
+
+run-name: ${{ github.actor }} is trying JSDOCs
+
+on:
+  push:
+    branches: ["main", "bug-*", "feature-*", "WIP-*"]
+  pull_request:
+    branches: ["main", "bug-*", "feature-*", "WIP-*"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: andstor/jsdoc-action@v1
+          with:
+              source_dir: ./src
+              recurse: true
+              output_dir: ./out
